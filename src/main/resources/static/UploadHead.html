@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>上传头像</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/index.css">
+    <link rel="stylesheet" href="/bootstrap/css/Info.css">
+    <!--<link rel="stylesheet" href="/static/webjars/font-awesome-4.7.0/css/font-awesome.min.css">-->
+    <script src="/jquery/jQuery-3.7.1.js"></script>
+    <script src="/jquery/Page.js"></script>
+    <script src="/jquery/jquery.cookie.js" charset="utf-8"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 或者您需要的其他高度 */
+        }
+        .navbar1 {
+            background-image: url('/img/2.png'); /* 替换为你的图片路径 */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar1">
+    <div class="container">
+        <br>
+    </div>
+</nav>
+<!--导航条-->
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="PersonInfo.html">个人中心</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="Article.html">发布中心</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="Pot.html">发现</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="LoginRegister.html">登录/注册</a>
+        </li>
+    </ul>
+</nav>
+<div class="card card-container">
+    <div class="row">
+        <div class="col-sm-2 shadow border border-light">
+            <div class="card-header">
+                <img src="/img/Head1.png" class="img-rounded img-fluid rounded-circle" style="width: 400px;height: 150px" alt="...">
+                <div class="card-header-pills"  style="background-color: #61bbd9; margin-top: 20px;">
+                    <br>
+                    <ul class="nav nav-tabs flex-column" style="margin: 0 auto;">
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px;"><a class="nav-link " href="PersonInfo.html" id="personBtn">个人信息</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="WorkList.html" id="workBtn">作品列表</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="UploadHead.html" id="AvaBtn">上传头像</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="ChangePassword.html" id="RpwdBtn">修改密码</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="" id="collectBtn">收藏夹</a></li>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 border border-success" style="width: 900px;height: 650px">
+            <div class="card-body " id="AvaCard">
+                <h1 style="color: #17a2b8">上传头像</h1>
+                <form id="changeAvatarForm" class="form-horizontal middle" role="form">
+                    <div class="form-group middle">
+                        <label class="control-label" style="color: #17a2b8;font-size: 25px">选择头像:</label>
+                        <div class="mb-5">
+                            <img id="avatarImg" src="/img/paopaobing3.jpg" class="img-responsive rounded-circle" style="width: 400px;height: 150px"/>
+                        </div>
+                        <div class="mb-5">
+                            <input type="file" name="file" style="color: #17a2b8">
+                        </div>
+                        <div class="mb-5">
+                            <input id="btn-changeAvatar" type="button" class="btn btn-primary" style="background-color: #17a2b8;width: 400px" value="上传" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            /*$(document).ready(function() {
+                $('#imgCard').show();
+                $('#AvaCard').hide(); // 隐藏上传头像卡片
+            });
+            $('#AvaBtn').click(function (event) {
+                event.preventDefault();
+                $('#imgCard').hide();
+                $('#AvaCard').show(); // 显示上传头像卡片
+            });*/
+
+            $(document).ready(function () {
+                let avatar = $.cookie("avatar");
+                console.log(avatar);
+                $("#avatarImg").attr("src",avatar);  //将cookie值获取出来设置到头像的src属性上
+            });
+
+            $("#btn-changeAvatar").click(function () {
+                $.ajax({
+                    url: "/user/changeAvatar",
+                    type: "POST",
+                    data: new FormData($("#changeAvatarForm")[0]), //文件类型的数据可以使用FormData对象进行存储
+                    processData: false,  //处理数据的形式，关闭处理数据
+                    contentType: false,  //提交数据的形式，关闭默认提交数据的形式
+                    dataType: "JSON",
+                    success:function (json) {
+                        if (json.status == 200){
+                            alert("头像修改成功");
+                            /*将服务器端返回的头像地址设置img标签的src属性上
+                            * attr（属性，属性值）:给某个属性设置某个值*/
+                            $("#avatarImg").attr("src",json.data);
+                            $.cookie("avatar",json.data,{expires: 30}) //更改完头像后，将最新的头像地址，再次保存到cookie中，同名保存会覆盖有ccokie中值
+                            //$.cookie();  //将头像保存在cookie中
+                            /*location.href = "UploadHead.html";*/
+                        }else {
+                            alert("头像修改失败");                }
+                    },
+                    error:function (xhr) {
+                        alert("修改头像时产生未知的错误"+xhr.message);
+                    }
+                });
+            });
+        </script>
+    </div>
+</div>
+<!--底部-->
+<footer class="navbar navbar-expand-lg ">
+    <div class="container">
+        <span class="text-white">版权所有：@国风衣橱 / 联系方式：111111111</span>
+    </div>
+</footer>
+</body>
+</html>

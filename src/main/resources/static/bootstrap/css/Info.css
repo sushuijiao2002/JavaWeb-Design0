@@ -1,0 +1,18 @@
+/*居中效果*/
+.middle {
+    /*使左上角对应到父元素的中心*/
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    /*向左向上偏移50%*/
+    transform: translate(-50%, -50%);
+}
+
+.form-content {
+    border-radius: 40px;
+    background-color: rgb(113, 184, 212,0.5); /* 设置内容背景色为半透明白色 */
+}
+label{
+    color: white;
+    font-size: 18px;
+}

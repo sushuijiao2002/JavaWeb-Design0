@@ -1,0 +1,50 @@
+
+/* 导航条背景图片样式 */
+.navbar1 {
+    border: none; /* 移除默认的边框 */
+    background-color: transparent; /* 背景色设置为透明 */
+    background-image: url('/static/img/2.png'); /* 替换为你的图片路径 */
+    background-repeat: no-repeat; /* 不重复平铺背景图片 */
+    background-size: cover; /* 背景图片自适应容器大小 */
+    margin: 0 auto; /* 上下边距为0，左右边距为auto */
+    text-align: center; /* 文本居中 */
+    height: 80px;
+}
+/* 搜索框输入样式 */
+.search-input {
+    border: none; /* 移除默认的边框 */
+    background-color: transparent; /* 背景色设置为透明 */
+    background-repeat: no-repeat; /* 不重复平铺背景图片 */
+    background-size: cover; /* 背景图片自适应容器大小 */
+}
+/*搜索按钮样式*/
+.search-button {
+    width: 200px; /* 你可以根据需要调整宽度 */
+}
+.btn-outline-custom {
+    color: rgb(55, 99, 166);
+    font-family: '行书', cursive; /* 指定字体 */
+    font-style: italic; /* 字体风格 */
+    font-weight: bold; /* 字体粗细 */
+}
+/*导航条*/
+.navbar {
+    background: linear-gradient(to right, rgba(23, 54, 112, 0.97), rgb(159, 229, 205));
+}
+.navbar .nav-link {
+    color: white;  /* 设置链接文字颜色为白色 */
+}
+.navbar .nav-link:hover {
+    color: #b3c5e8;
+}
+.gradient-background {
+    background: linear-gradient(to right, rgba(23, 54, 112, 0.97), #83d5ac);
+}
+.dropdown-item {
+    color: white; /* 默认字体颜色为白色 */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: linear-gradient(to right, rgb(98, 134, 189), #9fe5cd);
+    color:black;
+}

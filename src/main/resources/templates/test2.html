@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>登录</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/index.css">
+    <link rel="stylesheet" href="/webjars/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="/jquery/jQuery-3.7.1.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 或者您需要的其他高度 */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="../static/index.html">主页</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                论坛
+            </a>
+            <ul class="dropdown-menu gradient-background" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="knowledge.html">知识</a></li>
+                <li><a class="dropdown-item" href="life.html">生活</a></li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="reginster.html">注册</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="reginster.html">登录</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="reginster.html">个人中心</a>
+        </li>
+    </ul>
+</nav><!--导航条-->
+<div class="card card-container">
+    <div class="row">
+        <div class="col-sm-2 shadow border border-light">
+            <div class="card-header">
+                <img src="/img/paopaobing9.jpg" class="card-img-top img-rounded img-fluid" alt="...">
+                <div class="card-header-pills">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link " href="" id="personBtn">个人信息</a></li>
+                        <li class="nav-item"><a class="nav-link" href="" id="workBtn">作品列表</a></li>
+                        <li class="nav-item"><a class="nav-link" href="" id="followBtn">关注列表</a></li>
+                        <li class="nav-item"><a class="nav-link" href="" id="fanBtn">粉丝列表</a></li>
+                        <li class="nav-item"><a class="nav-link" href="" id="collectBtn">收藏夹</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 border border-success"style="width: 1000px;height: 800px">
+            <div class="card-body" id="imgCard">
+                <img src="/img/paopaobing3.jpg">
+            </div>
+            <div class="card-body" id="personCard">
+                <h1>个人信息</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="/img/paopaobing6.jpg" class="img-rounded" alt="Avatar" width="100" height="100">
+                    </div>
+                    <div class="col-md-8">
+                        <form class="form-horizontal" id="personInfo">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">用户ID:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="请输入用户ID" required>
+                                </div>
+                            </div><!--ID-->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">昵称:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="请输入昵称" required>
+                                </div>
+                            </div><!--昵称-->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">性别:</label>
+                                <div class="col-sm-10">
+                                    <div role="radiogroup" class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="btn btn-secondary active">
+                                            <input type="radio" name="gender" value="男" autocomplete="off" checked> 男
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="gender" value="女" autocomplete="off"> 女
+                                        </label>
+                                        <label class="btn btn-secondary">
+                                            <input type="radio" name="gender" value="保密" autocomplete="off"> 保密
+                                        </label>
+                                    </div>
+                                </div>
+                            </div><!--性别-->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">出生日期:</label>
+                                <div class="col-sm-10">
+                                    <input type="date" class="form-control" placeholder="请选择出生日期" required>
+                                </div>
+                            </div><!--出生日期-->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">邮箱:</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" placeholder="请输入邮箱" required>
+                                </div>
+                            </div><!--邮箱-->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">我的标签:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" placeholder="请输入我的标签" required>
+                                </div>
+                            </div><!--我的签名-->
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary" onclick="select1()">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><!--个人信息-->
+            <div class="card-body" id="workCard">
+                <h2 class="card-title">作品列表管理</h2>
+                <table class="table">
+                    <thead>
+                    <tr class="table-info">
+                        <th scope="col">序号</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">作品名称</th>
+                        <th scope="col">发布日期</th>
+                        <th scope="col">查看详情</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>作者1</td>
+                        <td>作品1</td>
+                        <td>2022-01-01</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                        <td><a href="edit.html" class="btn btn-primary">编辑</a> <a href="delete.html" class="btn btn-danger">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>作品2</td>
+                        <td>作品2</td>
+                        <td>2022-02-15</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                        <td><a href="edit.html" class="btn btn-primary">编辑</a> <a href="delete.html" class="btn btn-danger">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>作品3</td>
+                        <td>作品3</td>
+                        <td>2022-03-20</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                        <td><a href="edit.html" class="btn btn-primary">编辑</a> <a href="delete.html" class="btn btn-danger">删除</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><!--个人作品列表，可查看详情-->
+            <div class="card-body" id="attentionCard">
+                <h1>关注列表管理</h1>
+                <table class="table">
+                    <thead>
+                    <tr class="table-info">
+                        <th scope="col">序号</th>
+                        <th scope="col">用户名</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>@username1</td>
+                        <td><a href="unfollow.html" class="btn btn-danger">取消关注</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>@username2</td>
+                        <td><a href="unfollow.html" class="btn btn-danger">取消关注</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>@username3</td>
+                        <td><a href="unfollow.html" class="btn btn-danger">取消关注</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <a href="profile.html" class="btn btn-primary">关注的人</a>
+            </div><!--个人关注的其他作者，可查看详情-->
+            <div class="card-body" id="followerCard">
+                <h1>粉丝列表管理</h1>
+                <table class="table">
+                    <thead>
+                    <tr class="table-info">
+                        <th scope="col">#</th>
+                        <th scope="col">用户名</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>@username1</td>
+                        <td><a href="profile.html" class="btn btn-primary">查看个人中心</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>@username2</td>
+                        <td><a href="profile.html" class="btn btn-primary">查看个人中心</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>@username3</td>
+                        <td><a href="profile.html" class="btn btn-primary">查看个人中心</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><!--个人的粉丝列表，可查看详情-->
+            <div class="card-body" id="collectCard">
+                <h1>收藏文章管理</h1>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="table-info">
+                        <th scope="col">序号</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">作品名称</th>
+                        <th scope="col">发布日期</th>
+                        <th scope="col">查看详情</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>作者1</td>
+                        <td>作品1</td>
+                        <td>2022-01-01</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>作品2</td>
+                        <td>作品2</td>
+                        <td>2022-02-15</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>作品3</td>
+                        <td>作品3</td>
+                        <td>2022-03-20</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><!--个人收藏其他作者的作品列表，可查看详情-->
+            <script>
+                $(document).ready(function() {
+                    $('#imgCard').show();
+                    $('#personCard').hide(); // 隐藏个人信息卡片
+                    $('#workCard').hide(); // 隐藏作品列表卡片
+                    $('#attentionCard').hide(); // 隐藏关注列表卡片
+                    $('#followerCard').hide(); // 隐藏粉丝列表卡片
+                    $('#collectCard').hide(); // 隐藏收藏夹卡片
+                });
+                $(document).ready(function() {
+
+                    $('#personBtn').click(function (event) {
+                        event.preventDefault(); // 阻止链接的默认行为
+                        $('#imgCard').hide();
+                        $('#personCard').show(); // 显示个人信息卡片
+                        $('#workCard').hide(); // 隐藏作品列表卡片
+                        $('#attentionCard').hide(); // 隐藏关注列表卡片
+                        $('#followerCard').hide(); // 隐藏粉丝列表卡片
+                        $('#collectCard').hide(); // 隐藏收藏夹卡片
+                    });
+                    $('#workBtn').click(function (event) {
+                        event.preventDefault();
+                        $('#imgCard').hide();
+                        $('#personCard').hide(); // 隐藏个人信息卡片
+                        $('#workCard').show(); // 显示作品列表卡片
+                        $('#attentionCard').hide(); // 隐藏关注列表卡片
+                        $('#followerCard').hide(); // 隐藏粉丝列表卡片
+                        $('#collectCard').hide(); // 隐藏收藏夹卡片
+                    });
+                    $('#followBtn').click(function (event) {
+                        event.preventDefault();
+                        $('#imgCard').hide();
+                        $('#personCard').hide(); // 隐藏个人信息卡片
+                        $('#workCard').hide(); // 隐藏作品列表卡片
+                        $('#attentionCard').show(); // 显示关注列表卡片
+                        $('#followerCard').hide(); // 隐藏粉丝列表卡片
+                        $('#collectCard').hide(); // 隐藏收藏夹卡片
+
+                    });
+                    $('#fanBtn').click(function (event) {
+                        event.preventDefault();
+                        $('#imgCard').hide();
+                        $('#personCard').hide(); // 隐藏个人信息卡片
+                        $('#workCard').hide(); // 隐藏作品列表卡片
+                        $('#attentionCard').hide(); // 隐藏关注列表卡片
+                        $('#followerCard').show(); // 显示粉丝列表卡片
+                        $('#collectCard').hide(); // 隐藏收藏夹卡片
+                    });
+                    $('#collectBtn').click(function (event) {
+                        event.preventDefault();
+                        $('#imgCard').hide();
+                        $('#personCard').hide(); // 隐藏个人信息卡片
+                        $('#workCard').hide(); // 隐藏作品列表卡片
+                        $('#attentionCard').hide(); // 隐藏关注列表卡片
+                        $('#followerCard').hide(); // 隐藏粉丝列表卡片
+                        $('#collectCard').show(); // 显示收藏夹卡片
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<script>
+    function select1(){
+        $.ajax({
+            type:"get",
+            url:"http://localhost:8080/select1",
+            contentType:"application/json;charset=utf-8",
+            dataType:"json",
+            success:function(data){
+                document.querySelector('personInfo').innerText=JSON.stringify(data);
+            },
+            error:function (data) {
+               alert(err);
+            }
+        })
+    }
+    function insert(){
+        $.ajax({
+            type:"get",
+            url:"http://localhost:8080/insert",
+            data:{
+                
+            },
+            contentType:"application/json;charset=utf-8",
+            dataType:"text",
+            success:function(data){
+                document.querySelector('personInfo').innerText=JSON.stringify(data);
+            },
+            error:function (data) {
+                alert(err);
+            }
+        })
+    }
+
+</script>
+</body>
+</html>

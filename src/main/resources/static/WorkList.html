@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>作品列表</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/index.css">
+    <!--<link rel="stylesheet" href="/static/webjars/font-awesome-4.7.0/css/font-awesome.min.css">-->
+    <script src="/jquery/jQuery-3.7.1.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 或者您需要的其他高度 */
+        }
+        .navbar1 {
+            background-image: url('/img/2.png'); /* 替换为你的图片路径 */
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar1">
+    <div class="container">
+        <br>
+    </div>
+</nav>
+<!--导航条-->
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="PersonInfo.html">个人中心</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="Article.html">发布中心</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="Pot.html">发现</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="LoginRegister.html">登录/注册</a>
+        </li>
+    </ul>
+</nav>
+<div class="card card-container">
+    <div class="row">
+        <div class="col-sm-2 shadow border border-light">
+            <div class="card-header">
+                <img src="/img/Head1.png" class="img-rounded img-fluid rounded-circle" style="width: 400px;height: 150px" alt="...">
+                <div class="card-header-pills"  style="background-color: #61bbd9; margin-top: 20px;">
+                    <br>
+                    <ul class="nav nav-tabs flex-column" style="margin: 0 auto;">
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px;"><a class="nav-link " href="PersonInfo.html" id="personBtn">个人信息</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="WorkList.html" id="workBtn">作品列表</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="UploadHead.html" id="AvaBtn">上传头像</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="ChangePassword.html" id="RpwdBtn">修改密码</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="" id="collectBtn">收藏夹</a></li>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 border border-success" style="width: 1000px;height: 650px">
+            <!--<div class="card-body" id="imgCard">
+                <img src="/img/paopaobing3.jpg">
+            </div>-->
+            <div class="card-body" id="workCard">
+                <h2 class="card-title">作品列表管理</h2>
+                <table class="table">
+                    <thead>
+                    <tr class="table-info">
+                        <th scope="col">序号</th>
+                        <th scope="col">作者</th>
+                        <th scope="col">作品名称</th>
+                        <th scope="col">发布日期</th>
+                        <th scope="col">查看详情</th>
+                        <th scope="col">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>作者1</td>
+                        <td>作品1</td>
+                        <td>2022-01-01</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                        <td><a href="edit.html" class="btn btn-primary">编辑</a> <a href="delete.html" class="btn btn-danger">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>作品2</td>
+                        <td>作品2</td>
+                        <td>2022-02-15</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                        <td><a href="edit.html" class="btn btn-primary">编辑</a> <a href="delete.html" class="btn btn-danger">删除</a></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>作品3</td>
+                        <td>作品3</td>
+                        <td>2022-03-20</td>
+                        <td><a href="detail.html" class="btn btn-primary">查看详情</a></td>
+                        <td><a href="edit.html" class="btn btn-primary">编辑</a> <a href="delete.html" class="btn btn-danger">删除</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><!--个人作品列表，可查看详情-->
+        </div>
+        <script>
+            /*$(document).ready(function() {
+                $('#imgCard').show();
+                $('#workCard').hide(); // 隐藏作品列表卡片
+            });
+            $('#workBtn').click(function (event) {
+                event.preventDefault();
+                $('#imgCard').hide();
+                $('#workCard').show(); // 显示作品列表卡片
+            });*/
+        </script>
+    </div>
+</div>
+<!--底部-->
+<footer class="navbar navbar-expand-lg ">
+    <div class="container">
+        <span class="text-white">版权所有：@国风衣橱 / 联系方式：111111111</span>
+    </div>
+</footer>
+</body>
+
+</html>

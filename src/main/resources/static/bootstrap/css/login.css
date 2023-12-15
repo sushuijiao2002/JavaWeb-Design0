@@ -1,0 +1,84 @@
+body {
+    /*颜色*/
+    background: #99e3e3;
+    /*字体*/
+    font-family: sans-serif;
+}
+
+/*主要是规定中间表单尺寸*/
+.mainbody {
+    /*height: 440px;*/
+    height: auto;
+    width: 400px;
+}
+
+
+/*居中效果*/
+.middle {
+    /*使左上角对应到父元素的中心*/
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    /*向左向上偏移50%*/
+    transform: translate(-50%, -50%);
+}
+
+.form-box {
+    width: 400px;
+    height: min-content;
+    margin: -50% auto;
+    background-color: transparent;
+    /* 圆角大小 */
+    border-radius: 40px;
+    border: 1px solid #eee;
+    padding: 30px 0 50px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.front {
+    transform: rotateY(0deg);
+}
+
+/* 将back旋转180度，背面朝向用户，选y轴的 */
+.back {
+    transform: rotateY(-180deg);
+}
+
+.front,
+.back {
+    position: absolute;
+    /* 然后设置为背面朝向用户时不可见 */
+    backface-visibility: hidden;
+    transition: 0.3s linear;
+}
+
+/* 将front旋转180度 */
+.middle-flip .front {
+    transform: rotateY(180deg);
+}
+/* 将back旋转180度 */
+.middle-flip .back {
+    transform: rotateY(0deg);
+}
+
+a {
+    color: #fae748;
+    cursor: pointer;
+}
+/*.lr-btn{
+    width: 300px;
+    background-color: #ffeeba;
+    color: white;
+    font-size: 16px;
+    border-color: #ffeeba;
+}*/
+/*
+p {
+    margin: 15px auto;
+    padding: 0;
+    font-size: 16px;
+    color: #ffeeba;
+    display: block;
+    text-align: center;
+}*/

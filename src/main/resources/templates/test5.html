@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>注册</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/login.css">
+    <link rel="stylesheet" href="/static/webjars/font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="/jquery/jQuery-3.7.1.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+<body>
+<div class="login-form">
+    <form class="form-horizontal">
+        <h3 class="form-title mb-4" style="text-align: center">欢迎注册</h3>
+        <div style="margin-left: 50px">
+            <!-- 用户名标签和用户名输入框 -->
+            <div class="form-group mb-4 col-4">
+                <div class="input-group" style="width: 300px">
+                    <label for="username" class="input-group-addon">用户名</label>
+                    <input class="form-control" type="text" name="username" id="username" placeholder="请输入用户名" required>
+                </div>
+            </div>
+            <!-- 密码标签和密码输入框 -->
+            <div class="form-group mb-4 col-4">
+                <div class="input-group" style="width: 300px" >
+                    <label for="password" class="input-group-addon">密码</label>
+                    <input class="form-control required" type="password" name="password" id="password" placeholder="请输入密码" required pattern="(?=.*\d{6})(?=.*[a-z])(?=.*[A-Z]).+" title="至少一个大写字母和小写字母，六个数字">
+                </div>
+            </div>
+            <!-- 确认密码标签和确认密码输入框 -->
+            <div class="form-group mb-3 col-4">
+                <div class="input-group" style="width: 300px">
+                    <label for="confirm_password" class="input-group-addon">确认密码</label>
+                    <input class="form-control required" type="password" name="confirm_password" id="confirm_password" placeholder="请确认密码" required pattern="(?=.*\d{6})(?=.*[a-z])(?=.*[A-Z]).+" title="至少一个大写字母和小写字母，六个数字">
+                </div>
+            </div>
+            <!-- 邮箱标签和邮箱输入框 -->
+            <div class="form-group mb-4 col-4">
+                <div class="input-group" style="width: 300px">
+                    <label for="email" class="input-group-addon">邮箱</label>
+                    <input class="form-control required" type="email" name="email" id="email" placeholder="请输入QQ邮箱地址" required pattern="[a-zA-Z0-9._%+-]+@qq.com" title="QQ邮箱">
+                </div>
+            </div>
+            <!-- 注册按钮 -->
+            <div class="mb-4 col-4">
+                <button class="btn btn-success" style="width: 300px" type="submit">注册</button>
+            </div>
+            <div class="mb-4 col-4" >
+                <a href="logintest.html" class="btn btn-success active" role="button" aria-pressed="true">返回</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+</body>
+</html>

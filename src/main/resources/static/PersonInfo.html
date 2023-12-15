@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>个人信息</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/index.css">
+    <link rel="stylesheet" href="/bootstrap/css/Info.css">
+    <script src="/jquery/jQuery-3.7.1.js"></script>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 或者您需要的其他高度 */
+        }
+        .navbar1 {
+            background-image: url('/img/2.png'); /* 替换为你的图片路径 */
+        }
+        .CardBody1{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: url(/img/tuanshan.jpg) center 0;
+            background-size: 100% 100%;
+            background-position: center 0;
+            background-repeat: no-repeat;
+        }
+        .form-content {
+            border-radius: 40px;
+            background-color: rgb(113, 184, 212,0.5); /* 设置内容背景色为半透明白色 */
+        }
+        label{
+            color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar1">
+    <div class="container">
+        <br>
+    </div>
+</nav>
+<!--导航条-->
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">主页</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="Pot.html">发现</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Article.html">发布中心</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="PersonInfo.html">个人中心</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="LoginRegister.html">登录/注册</a>
+        </li>
+    </ul>
+</nav>
+<div class="card card-container">
+    <div class="row">
+        <div class="col-sm-2 shadow border border-light">
+            <div class="card-header">
+                <img src="/img/Head1.png" class="img-rounded img-fluid rounded-circle" style="width: 400px;height: 150px" alt="...">
+                <br>
+                <div class="card-header-pills"  style="background-color: #61bbd9; margin-top: 20px;">
+                    <ul class="nav nav-tabs flex-column" style="margin: 0 auto;">
+                        <br>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link " href="PersonInfo.html" id="personBtn">个人信息</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="WorkList.html" id="workBtn">作品列表</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="UploadHead.html" id="AvaBtn">上传头像</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="ChangePassword.html" id="RpwdBtn">修改密码</a></li>
+                        <li class="nav-item mb-4" style="margin: 0 auto;font-size: 23px"><a class="nav-link" href="" id="collectBtn">收藏夹</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 border border-success CardBody1" style="width: 900px;height: 650px">
+           <!-- <div class="card-body" id="imgCard">
+                <img src="/img/paopaobing3.jpg" alt="无法加载">
+            </div>-->
+            <div class="card-body" id="personCard">
+                <!-- <h1>个人信息</h1>-->
+                <form class="form-horizontal form-content" id="personInfoForm" style="margin: 0 auto;width:600px">
+                    <div class="form-group" style="margin: 0 auto;width: 500px">
+                        <!-- <div class="form-group">
+                             <label class="col-sm-2 control-label">用户ID:</label>
+                             <div class="col-sm-10">
+                                 <input id="id" type="text" class="form-control" placeholder="请输入用户ID" required>
+                             </div>
+                         </div>-->
+                        <div class="mb-1">
+                            <label class="control-label" for="username">用户名:</label>
+                            <input id="username" type="text" class="form-control" required>
+                        </div>
+
+                        <div class="mb-1">
+                            <label class="control-label" for="nickName">昵称:</label>
+                            <input id="nickName" type="text" class="form-control" required>
+                        </div>
+
+                        <div class="mb-1">
+                            <label class="control-label">性别:</label>
+                            <div role="radiogroup" class="btn-group btn-group-toggle" data-toggle="buttons" style="color: white">
+                                <label class="radio-inline" for="sexMale">男</label>
+                                <input id="sexMale" type="radio" name="gender" value="男" autocomplete="off" checked>
+
+                                <label class="radio-inline" for="sexFemale">女</label>
+                                <input id="sexFemale" type="radio" name="gender" value="女" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="mb-1">
+                            <label class="control-label" for="age">年龄:</label>
+                            <input id="age" type="text" class="form-control" required>
+                        </div>
+
+                        <div class="mb-1">
+                            <label class="control-label">出生日期:</label>
+                            <input id="birthday" type="date" class="form-control" placeholder="请选择出生日期" required>
+                        </div><!--出生日期-->
+
+                        <div class="mb-1">
+                            <label class="control-label" for="email">邮箱:</label>
+                            <input id="email" type="email" class="form-control" required>
+                        </div><!--邮箱-->
+
+                        <div class="mb-4">
+                            <label class="control-label" for="motto">我的标签:</label>
+                            <input id="motto" type="text" class="form-control" style="height: 80px" required>
+                        </div><!--我的签名-->
+
+                        <div class="mb-4">
+                            <button id="btn-PersonInfo" type="button" class="btn btn-primary" style="width: 500px; background-color: #75C5DE;font-size: 20px">修改</button>
+                        </div>
+                        <br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<footer class="navbar navbar-expand-lg ">
+    <div class="container">
+        <span class="text-white">版权所有：@国风衣橱 / 联系方式：111111111</span>
+    </div>
+</footer>
+<script>
+    $(document).ready(function () {
+        $('#imgCard').show();
+        $('#personCard').hide(); // 隐藏个人信息卡片
+    });
+    $('#personBtn').click(function (event) {
+        event.preventDefault();
+        $('#imgCard').hide();
+        $('#personCard').show(); // 显示个人信息卡片
+    });
+
+    $("#btn-PersonInfo").click(function () {
+        let username = jQuery("#username").val();  //动态获取表单中控件的数据
+        let nickname = jQuery("#nickname").val();
+        let sex = $('input[name="gender"]:checked').val();
+        if (sex === "男") {
+            sex = 1;
+        } else {
+            sex = 0;
+        }
+        let age = jQuery("#age").val();
+        let birthday = jQuery("#birthday").val();
+        let email = jQuery("#email").val();
+        let motto = jQuery("#motto").val();
+        $.ajax({
+            url: "/user/changeInfo",
+            type: "POST",
+            // data: $("#PersonInfoForm").serialize(),
+            data: {
+                "username": username,
+                "nickname": nickname,
+                "sex": sex,
+                "age": age,
+                "birthday": birthday,
+                "email": email,
+                "motto": motto
+            },
+            dataType: "JSON",
+            success: function (json) {
+                //数据自动填充
+                if (json.status == 200) {
+                    alert("用户信息修改成功")
+                    //location.href = "PersonInfo.html";
+                } else {
+                    alert("用户信息修改失败" + json.message);
+                }
+            },
+            error: function (xhr) {
+                alert("用户修改信息时产生异常" + xhr.message);
+            }
+        });
+    })
+    $(document).ready(function () {
+        $.ajax({
+            url: "/user/getById",
+            type: "GET",
+            data: $("#PersonInfoForm").serialize(),
+            dataType: "JSON",
+            success: function (json) {
+                //数据自动填充
+                if (json.status == 200) {
+                    //将查询到的数据重新设置到控件中
+                    $("#id").val(json.data.id);
+                    $("#username").val(json.data.username);
+                    $("#nickName").val(json.data.nickName);
+                    let radio = json.data.sex == 0 ? $("#sexFemale").val(json.data.sex) : $("#sexMale").val(json.data.sex);
+                    radio.prop("checked", "checked")
+                    $("#age").val(json.data.age);
+                    $("#birthday").val(json.data.birthday);
+                    $("#email").val(json.data.email);
+                    $("#motto").val(json.data.motto);
+
+                } else {
+                    alert("用户数据的数据不存在" + json.message);
+                }
+            },
+        });
+    })
+</script>
+</body>
+</html>

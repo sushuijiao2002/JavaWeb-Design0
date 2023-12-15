@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>登录/注册</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/login.css">
+    <!--<link rel="stylesheet" href="webjars/font-awesome-4.7.0/css/font-awesome.min.css">-->
+    <script src="../static/jquery/jQuery-3.7.1.js"></script>
+    <script src="../static/bootstrap/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: url(/img/login1.jpg) center 0;
+            background-size: cover;
+            background-position: center 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+<div class="mainbody middle">
+    <form class="form-box front" id="myLoginForm">
+        <div>
+            <h3 class="form-title mb-4" style="text-align: center">登录</h3>
+        </div>
+        <div class="mb-4 col-4">
+            <!-- 用户名图标和用户名输入框 -->
+            <div class="mb-4 col-4" >
+                <div class="input-group" style="width: 300px" >
+                    <input class="form-control" type="text" name="username" id="username1" placeholder="请输入用户名" required>
+                </div>
+            </div>
+            <!-- 密码标签和密码输入框 -->
+            <div class="mb-4 col-4">
+                <div class="input-group" style="width: 300px" >
+                    <input class="form-control" type="password" name="password" id="password1" placeholder="请输入密码" required pattern="(?=.*\d{6})(?=.*[a-z])(?=.*[A-Z]).+" title="至少一个大写字母和小写字母，六个数字">
+                </div>
+            </div>
+            <div class="mb-4 col-4">
+                <button id="btn-login" class="btn btn-success" style="width: 300px" type="submit">登录</button>
+            </div>
+            <style>
+                a{ text-decoration:none}
+            </style>
+        </div>
+        <div>
+            <p style="margin-top: 40px"><a id="register">没有账号?立即注册</a></p>
+        </div>
+    </form>
+    <!-- 注册 -->
+    <form class="form-box back" id="myRegisterForm">
+        <div>
+            <h3 class="form-title mb-4" style="text-align: center">欢迎注册</h3>
+        </div>
+        <div class="form-group mb-4 col-8">
+            <div class="form-group mb-4 col-4">
+                <div class="input-group" style="width: 300px">
+                    <input class="form-control" type="text" name="username" id="username" placeholder="请输入用户名" required>
+                </div>
+            </div>
+            <!-- 密码标签和密码输入框 -->
+            <div class="form-group mb-4 col-4">
+                <div class="input-group" style="width: 300px" >
+                    <input class="form-control required" type="password" name="password" id="password" placeholder="请输入密码" required pattern="(?=.*\d{6})(?=.*[a-z])(?=.*[A-Z]).+" title="至少一个大写字母和小写字母，六个数字">
+                </div>
+            </div>
+            <!-- 确认密码标签和确认密码输入框 -->
+            <div class="form-group mb-3 col-4">
+                <div class="input-group" style="width: 300px">
+                    <input class="form-control required" type="password" name="confirm_password" id="confirm_password" placeholder="请确认密码" required pattern="(?=.*\d{6})(?=.*[a-z])(?=.*[A-Z]).+" title="至少一个大写字母和小写字母，六个数字">
+                </div>
+            </div>
+            <!-- 邮箱标签和邮箱输入框 -->
+            <div class="form-group mb-4 col-4">
+                <div class="input-group" style="width: 300px">
+                    <input class="form-control required" type="email" name="email" id="email" placeholder="请输入QQ邮箱地址" required pattern="[a-zA-Z0-9._%+-]+@qq.com" title="QQ邮箱">
+                </div>
+            </div>
+            <!-- 注册按钮 -->
+            <div class="mb-4 col-4">
+                <button id="btn-register" class="btn btn-success" style="width: 300px" type="submit">注册</button>
+            </div>
+        </div>
+        <div>
+            <p style="margin-top: 40px"><a id="login">有一个账号啦？立即登陆</a></p>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+
+    // 点击register触发翻转样式
+    $("#register").click(function() {
+        $(".middle").toggleClass("middle-flip");
+    });
+
+    // 点击login触发翻转样式
+    $("#login").click(function() {
+        $(".middle").toggleClass("middle-flip");
+    });
+
+    $(document).ready(function() {
+        // 在表单提交前进行验证
+        $('#myLoginForm,#myRegisterForm').on('submit', function(event) {
+            if ($(this).valid()) { // 如果验证通过，则执行默认的表单提交行为
+                return true;
+            } else { // 如果验证不通过，则阻止表单的提交并显示错误消息
+                event.preventDefault();
+                $(this).addClass('was-validated');
+            }
+        });
+        // 验证密码和确认密码是否一致
+        $('#password, #confirm_password').on('keyup', function() {
+            if ($('#password').val() !== $('#confirm_password').val()) {
+                $('#confirm_password').addClass('is-invalid');
+                $('#confirm_password').next('.invalid-feedback').show();
+            } else {
+                $('#confirm_password').removeClass('is-invalid');
+                $('#confirm_password').next('.invalid-feedback').hide();
+            }
+        });
+    });
+    /*注册*/
+    console.log($("#myRegisterForm").serialize());
+    $("#btn-register").click(function () {
+        $.ajax({
+            url: "/user/register",
+            type: "POST",
+            data: $("#myRegisterForm").serialize(),
+            dataType: "JSON",
+            success:function (json) {
+                if (json.status == 200){
+                    alert("注册成功");
+                    location.href = "index.html";
+                }else {
+                    alert("注册失败");
+                }
+            },
+            error:function (xhr) {
+                alert("注册时产生未知的错误"+xhr.status);
+            }
+        });
+    });
+
+    $("#btn-login").click(function () {
+        $.ajax({
+            url: "/user/login",
+            type: "POST",
+            data: $("#myLoginForm").serialize(),
+            dataType: "JSON",
+            success:function (json) {
+                if (json.status == 200){
+                    alert("登录成功");
+                   // location.href = "index.html";  //登录成功后跳转到主页
+                    //将服务器返回的头像设置到cookie中,expires:30存活时间
+                    $.cookie("avatar",json.data.avatar,{expires:30});
+                }else {
+                    alert("登录失败");
+                }
+            },
+            error:function (xhr) {
+                alert("登录时产生未知的错误"+xhr.message);
+            }
+        });
+    });
+
+</script>
+</body>
+</html>
