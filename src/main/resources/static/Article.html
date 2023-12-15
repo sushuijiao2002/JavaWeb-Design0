@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/style.css">
+    <script src="jquery/jQuery-3.7.1.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <title>发布中心</title>
+    <style>
+        .navbar1 {
+            background-image: url('/img/2.png');
+        }
+        .search-input {
+            background-image: url('/img/1.png');
+        }
+    </style>
+
+</head>
+<body>
+<nav class="navbar1">
+    <div class="container">
+        <br>
+    </div>
+</nav>
+<!--导航条-->
+<nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">主页</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="Pot.html">发现</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="Article.html">发布中心</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="PersonInfo.html">个人中心</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="LoginRegister.html">登录/注册</a>
+        </li>
+    </ul>
+</nav>
+<!--发表-->
+<div id="Article-post">
+    <div style="text-align:center;background-image: url('img/post1.png'); background-size: cover; background-position: center 40%; background-repeat: no-repeat;" class="custom-text">
+    <br>
+    <label for="title">文章标题:</label>
+    <input type="text" id="title" name="title" required style="width: 600px;"><br>
+    <br>
+    <label for="title">文章描述:</label>
+    <input type="text" id="description" name="title" required style="width: 800px;"><br>
+    <br>
+    <label for="content">文章内容:</label>
+    <textarea id="content" name="content" rows="12" cols="900" required style="width: 1000px;vertical-align: top;"></textarea><br>
+     <br>
+     <label for="title">请输入你的用户名:</label>
+     <input type="text" id="authorid" name="authorid" required style="width: 200px;"><br>
+     <br>
+    <input type="button" class="search-input fabiao" id="btn_fabiao"value="发表文章" style="width: 15%; padding: 0.2%;">
+    <br>
+    <br>
+</div></div>
+<script>
+    //点击事件
+    $("#btn_fabiao").click(function () {
+        //获取输入框的值
+        let title =jQuery("#title").val();
+        let description =jQuery("#description").val();
+        let content =jQuery("#content").val();
+        let authorid =jQuery("#authorid").val();
+        // 检查输入框是否为空，任何一个输入框为空，会弹出一个警告框
+        if (title === "") {
+            alert("请输入标题！");
+            return;
+        }
+        if (description === "") {
+            alert("请输入描述！");
+            return;
+        }
+        if (content === "") {
+            alert("请输入内容！");
+            return;
+        }
+        if (authorid === "") {
+            alert("请输入作者ID！");
+            return;
+        }
+        $.ajax({
+            //发送了之前获取的四个输入框的值作为请求的数据
+            url: "/article/add",
+            type: "POST",
+            data: {
+                "title": title,
+                "description":description,
+                "content": content,
+                "authorid":authorid
+            },
+            dataType: "JSON",
+            success:function (json) {
+                if (json.status == 200){
+                    alert("发表成功");
+                    location.href = "index.html";  //成功后跳转到主页
+                }else {
+                    alert("发表失败");
+                }
+            },
+            error:function (xhr) {
+                alert("发表时产生未知的错误"+xhr.message);
+            }
+        });
+    });
+</script>
+<!--底部-->
+<footer class="navbar navbar-expand-lg ">
+    <div class="container">
+        <span class="text-white">版权所有：@国风衣橱 / 联系方式：111111111</span>
+    </div>
+</footer>
+</body>
+</html>
