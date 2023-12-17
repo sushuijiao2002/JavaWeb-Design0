@@ -1,0 +1,90 @@
+.navbar1 {
+    border: none; /* 移除默认的边框 */
+    background-color: transparent; /* 背景色设置为透明 */
+    background-image: url('/static/img/2.png'); /* 替换为你的图片路径 */
+    background-repeat: no-repeat; /* 不重复平铺背景图片 */
+    background-size: cover; /* 背景图片自适应容器大小 */
+    margin: 0 auto; /* 上下边距为0，左右边距为auto */
+    text-align: center; /* 文本居中 */
+    height: 80px;
+}
+/* 搜索框输入样式 */
+.search-input {
+    border: none; /* 移除默认的边框 */
+    background-color: transparent; /* 背景色设置为透明 */
+    background-image: url('/static/img/1.png'); /* 替换为你的图片路径 */
+    background-repeat: no-repeat; /* 不重复平铺背景图片 */
+    background-size: cover; /* 背景图片自适应容器大小 */
+}
+/*搜索按钮样式*/
+.search-button {
+    width: 200px; /* 你可以根据需要调整宽度 */
+}
+.btn-outline-custom {
+    color: rgb(55, 99, 166);
+    font-family: '行书', cursive; /* 指定字体 */
+    font-style: italic; /* 字体风格 */
+    font-weight: bold; /* 字体粗细 */
+}
+/*导航条*/
+.navbar {
+    background: linear-gradient(to right, rgba(23, 54, 112, 0.97), rgb(159, 229, 205));
+}
+.navbar .nav-link {
+    color: white;  /* 设置链接文字颜色为白色 */
+}
+.navbar .nav-link:hover {
+    color: #b3c5e8;
+}
+.gradient-background {
+    background: linear-gradient(to right, rgba(23, 54, 112, 0.97), #83d5ac);
+}
+.dropdown-item {
+    color: white; /* 默认字体颜色为白色 */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background: linear-gradient(to right, rgb(98, 134, 189), #9fe5cd);
+    color:black;
+}
+.article-title {
+    text-align: center;
+    margin: 20px 0;
+}
+.article-content {
+    text-indent:2rem;
+    width: 100%; /* 设置宽度为100% */
+    margin-bottom: 40px;
+    text-align: left;
+    font-size: 17px;
+}
+.publish-info {
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 20px; /* 调整发布信息与按钮区的间距 */
+}
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px; /* 调整按钮区与评论区的间距 */
+}
+.actions button {
+    border: none;
+    background: none;
+    margin: 30px;
+}
+.comment-actions button {
+    border: none; /* 去除边框 */
+    background: none; /* 去除背景色 */
+    /* 其他样式 */
+}
+.comment {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.comment-actions {
+    flex: 1; /* 让回复、点赞和踩占据相同空间 */
+}
