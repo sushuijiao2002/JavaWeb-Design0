@@ -6,7 +6,6 @@
     background-repeat: no-repeat; /* 不重复平铺背景图片 */
     background-size: cover; /* 背景图片自适应容器大小 */
     margin: 0 auto; /* 上下边距为0，左右边距为auto */
-    text-align: center; /* 文本居中 */
     height: 80px;
 }
 
@@ -37,7 +36,6 @@
 /*字体样式*/
 .custom-text {
     font-size: 2vw; /* 使用视口单位设置字体大小，随着页面大小改变 */
-    border: none; /* 去掉边框 */
     color: #083f86;
     font-family: '行书', cursive; /* 指定字体 */
     font-weight: bold; /* 字体粗细 */
@@ -54,15 +52,6 @@
     height: auto; /* 图片高度自适应 */
     object-fit: cover; /* 保持图片的宽高比，并填充整个卡片区域 */
 }
-
-.card-overlay {
-    position: absolute; /* 设置绝对定位，元素相对于最近的已定位祖先元素进行定位*/
-    top: 0; /* 覆盖整个图片区域 */
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1); /* 半透明的黑色背景，可根据需要调整透明度 */
-}
-
 .card-body {
     position: absolute; /* 设置绝对定位 */
     bottom: 0; /* 将文字放置在图片底部 */
